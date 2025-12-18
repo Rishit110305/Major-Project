@@ -63,6 +63,12 @@
 
 </div>
 
+<% if (allListings.length === 0) { %>
+  <p class="text-center mt-4">
+    No listings found 😕
+  </p>
+<% } %>
+
 <!-- LISTINGS -->
 <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
   <% for (let listing of allListings) { %>

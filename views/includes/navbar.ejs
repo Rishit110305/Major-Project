@@ -6,18 +6,23 @@
     </a>
 
     <div class="d-none d-md-flex flex-grow-1 justify-content-center">
-        <form class="airbnb-search" action="/listings" method="GET">
-            <span class="search-item">Anywhere</span>
-            <span class="divider"></span>
-            <span class="search-item">Any week</span>
-            <span class="divider"></span>
-            <span class="search-item muted">Add guests</span>
+  <form class="airbnb-search d-flex align-items-center" action="/listings" method="GET">
+    
+    <input
+      type="text"
+      name="search"
+      class="search-input"
+      placeholder="Search destinations"
+      value="<%= typeof search !== 'undefined' ? search : '' %>"
+      required
+    />
 
-            <button class="search-btn" type="submit">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-        </form>
-    </div>
+    <button class="search-btn" type="submit">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+
+  </form>
+</div>
 
     <button
       class="navbar-toggler"

@@ -48,3 +48,12 @@
     display: none;
   }
 }
+
+/* SEARCH  */
+.search-input {
+  border: none;
+  outline: none;
+  padding: 8px 12px;
+  border-radius: 30px;
+  min-width: 250px;
+}
