@@ -33,14 +33,17 @@
 
         <a class="nav-link" href="/listings/new">Airbnb your home</a>
 
-        <% if(!currUser) { %>
-          <a class="nav-link fw-bold" href="/signup">Sign up</a>
-          <a class="nav-link fw-bold" href="/login">Log in</a>
-        <% } %>
+<% if (!currUser) { %>
+  <a class="nav-link fw-bold" href="/signup">Sign up</a>
+  <a class="nav-link fw-bold" href="/login">Log in</a>
+<% } else { %>
+  <!-- Logged-in user -->
+  <span class="nav-link fw-bold">
+    👤 <%= currUser.username %>
+  </span>
 
-        <% if(currUser) { %>
-          <a class="nav-link fw-bold" href="/logout">Logout</a>
-        <% } %>
+  <a class="nav-link fw-bold" href="/logout">Logout</a>
+<% } %>
 
       </div>
     </div>
