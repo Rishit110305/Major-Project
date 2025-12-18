@@ -36,6 +36,12 @@ module.exports.createListing = async (req, res) => {
     const coords = await geocodeLocation(location, country);
     // coords should be: { lat, lng }
 
+    // ❗ STOP if geocoding fails
+    if (!coords) {
+      req.flash("error", "Invalid location. Please enter a valid city and country.");
+      return res.redirect("/listings/new");
+    }
+
     const newListing = new Listing({
       title,
       description,
@@ -44,9 +50,7 @@ module.exports.createListing = async (req, res) => {
       country,
       geometry: {
         type: "Point",
-        coordinates: coords
-          ? [coords.lng, coords.lat]    // ✅ IMPORTANT ORDER
-          : [77.2090, 28.6139]          // fallback Delhi
+        coordinates: [coords.lng, coords.lat] // ✅ ONLY valid coords
       },
       owner: req.user._id
     });
@@ -99,13 +103,25 @@ module.exports.showListing = async (req, res, next) => {
 
 module.exports.editListing = async (req, res) => {
   const listing = await Listing.findById(req.params.id);
+
   if (!listing) {
     req.flash("error", "Cannot find that listing.");
     return res.redirect("/listings");
   }
 
   const originalImage = listing.image?.url;
-  res.render("listings/edit", { listing, originalImage });
+
+  //  Extract existing coordinates safely
+  const coordinates =
+    listing.geometry && listing.geometry.coordinates
+      ? listing.geometry.coordinates
+      : [77.2090, 28.6139]; // fallback only for display
+
+  res.render("listings/edit", {
+    listing,
+    originalImage,
+    coordinates, //  pass to edit.ejs if map is used
+  });
 };
 
 module.exports.updateListing = async (req, res) => {
@@ -125,7 +141,15 @@ module.exports.updateListing = async (req, res) => {
   // If location or country changed → re-geocode
   if (location !== listing.location || country !== listing.country) {
     const newCoords = await geocodeLocation(location, country);
-    listing.coordinates = newCoords || listing.coordinates; // fallback: keep old coords
+
+    // stop update if geocode fails
+    if (!newCoords) {
+      req.flash("error", "Invalid location. Please enter a valid city and country.");
+      return res.redirect(`/listings/${id}/edit`);
+    }
+
+    //  CORRECT FIELD
+    listing.geometry.coordinates = [newCoords.lng, newCoords.lat];
   }
 
   // Update fields
