@@ -1,0 +1,138 @@
+<%- layout("/layouts/boilerplate") -%>
+
+<!-- CATEGORY FILTER BAR -->
+<div class="category-bar">
+
+  <div class="category active">
+    <i class="fa-solid fa-fire"></i>
+    <span>Trending</span>
+  </div>
+
+  <div class="category">
+    <i class="fa-solid fa-bed"></i>
+    <span>Rooms</span>
+  </div>
+
+  <div class="category">
+    <i class="fa-solid fa-mountain-sun"></i>
+    <span>Amazing views</span>
+  </div>
+
+  <div class="category">
+    <i class="fa-solid fa-city"></i>
+    <span>Iconic cities</span>
+  </div>
+
+  <div class="category">
+    <i class="fa-solid fa-water"></i>
+    <span>Beach</span>
+  </div>
+
+  <div class="category">
+    <i class="fa-solid fa-umbrella-beach"></i>
+    <span>Lakefront</span>
+  </div>
+
+  <div class="category">
+    <i class="fa-solid fa-house-chimney"></i>
+    <span>Cabins</span>
+  </div>
+
+  <div class="category">
+    <i class="fa-solid fa-person-swimming"></i>
+    <span>Amazing pools</span>
+  </div>
+
+  <div class="category">
+    <i class="fa-solid fa-tree"></i>
+    <span>Farms</span>
+  </div>
+
+  <!-- TAX TOGGLE -->
+  <div class="tax-toggle">
+    <span class="tax-label">Display total before taxes</span>
+    <div class="form-check form-switch m-0">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        role="switch"
+        id="taxToggle"
+      >
+    </div>
+  </div>
+
+</div>
+
+<!-- LISTINGS -->
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+  <% for (let listing of allListings) { %>
+    <a href="/listings/<%= listing._id %>" class="listing-link">
+      <div class="card col listing-card">
+
+        <img 
+          src="<%= listing.image.url || 'https://images.unsplash.com/photo-1625505826533-5c80aca7d157' %>" 
+          class="card-img-top" 
+          alt="listing_image"
+          style="height: 20rem;"
+        >
+
+        <div class="card-body">
+          <p class="card-text">
+            <b><%= listing.title %></b><br>
+
+            <span 
+              class="price" 
+              data-base="<%= listing.price %>"
+            >
+              &#8377; <%= listing.price.toLocaleString("en-IN") %>
+            </span> / night
+            <br>
+            <small class="tax-info d-none">Includes taxes</small>
+          </p>
+        </div>
+
+      </div>
+    </a>
+  <% } %>
+</div>
+
+<!-- GST TOGGLE SCRIPT -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const taxToggle = document.getElementById("taxToggle");
+    const TAX_RATE = 0.18;
+
+    if (!taxToggle) return;
+
+    const savedState = localStorage.getItem("showTax");
+    if (savedState === "true") taxToggle.checked = true;
+
+    function updatePrices() {
+      document.querySelectorAll(".price").forEach(priceEl => {
+        const basePrice = Number(priceEl.dataset.base);
+        const taxInfo = priceEl.parentElement.querySelector(".tax-info");
+
+        priceEl.classList.add("updating");
+
+        setTimeout(() => {
+          if (taxToggle.checked) {
+            const total = Math.round(basePrice * (1 + TAX_RATE));
+            priceEl.innerHTML = "&#8377; " + total.toLocaleString("en-IN");
+            taxInfo.classList.remove("d-none");
+          } else {
+            priceEl.innerHTML = "&#8377; " + basePrice.toLocaleString("en-IN");
+            taxInfo.classList.add("d-none");
+          }
+          priceEl.classList.remove("updating");
+        }, 150);
+      });
+    }
+
+    taxToggle.addEventListener("change", () => {
+      localStorage.setItem("showTax", taxToggle.checked);
+      updatePrices();
+    });
+
+    updatePrices();
+  });
+</script>

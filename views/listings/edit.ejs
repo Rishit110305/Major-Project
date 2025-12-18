@@ -1,0 +1,65 @@
+<%- layout("/layouts/boilerplate") -%>
+<body>
+    <div class="row">
+
+        <div class="col-8 offset-1">
+            <br><br>
+
+    <h3>Create a new Listing</h3>
+    <form method="POST" action="/listings/<%=listing._id %>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div>
+        <label for="title" class="form-label">Title</label>
+    <input type="text" value="<%= listing.title %>" name="listing[title]" class="form-control" required>
+    <div class="valid-feedback">Title looks good !</div>
+    </div>
+    <br><br>
+    <div>
+        <label for="description" class="form-label">Description</label>
+    <textarea rows="10" cols="30" name="listing[description]" class="form-control" required><%= listing.description %></textarea>
+    <div class="invalid-feedback">Please enter a short description</div>
+    </div>
+    <br><br>
+    <div>
+  Original Listing Image <br>
+
+  <% if (originalImage) { %>
+    <img src="<%= originalImage %>" alt="Listing image" height="200" width="250px">
+  <% } %>
+</div><br>
+    <div>
+            <label for="image" class="form-label">Upload New Image</label>
+            <input type="file" name="image"  class="form-control" >
+        </div>
+        <br><br>
+        <div class="row">
+    <div class="col-md-4">
+        <label for="price" class="form-label">Price</label>
+    <input type="number" value="<%= listing.price %>" name="listing[price]" class="form-control" required>
+    <div class="invalid-feedback">Please enter a valid Price</div>
+    </div>
+    <br><br>
+    <div class="col-md-8">
+        <label for="country" class="form-label">Country</label>
+    <input type="text" value="<%= listing.country %>" name="listing[country]" class="form-control" required>
+    <div class="invalid-feedback">Please enter a valid Country</div>
+    </div>
+    </div>
+    <br><br>
+    <div>
+    <label for="location" class="form-label">Location</label>
+    <input type="text" value="<%= listing.location %>" name="listing[location]" class="form-control" required>
+    <div class="invalid-feedback">Please enter a valid Location</div>
+    </div>
+    <br><br>
+    <button class="btn btn-dark edit-btn">Edit!</button><br><br>
+
+   
+    <br><br><br>
+</form>
+
+        </div>
+
+</div>
+<script src="/js/script.js"></script>
+   
+</body>

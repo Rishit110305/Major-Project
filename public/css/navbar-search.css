@@ -1,0 +1,50 @@
+/* AIRBNB SEARCH BAR */
+.airbnb-search {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  border: 1px solid #dddddd;
+  border-radius: 999px;
+  padding: 0.4rem 0.6rem 0.4rem 1rem;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+}
+
+.search-item {
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.search-item.muted {
+  color: #717171;
+}
+
+.divider {
+  width: 1px;
+  height: 20px;
+  background: #dddddd;
+}
+
+.search-btn {
+  background: #ff385c;
+  border: none;
+  color: white;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-btn i {
+  font-size: 0.75rem;
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+  .airbnb-search {
+    display: none;
+  }
+}
