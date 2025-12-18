@@ -85,7 +85,10 @@ app.use((req, res, next) => {
 });
 
 
-
+// ROOT ROUTE → redirect to listings
+app.get("/", (req, res) => {
+  res.redirect("/listings");
+});
 
 // listing Routes
 app.use("/listings", listingRouter);
