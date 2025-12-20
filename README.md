@@ -1,4 +1,4 @@
-#WANDERLUST 🧭
+# WANDERLUST 🧭
 
 WanderLust is a complete full‑stack web application inspired by platforms like Airbnb. The goal of this project was to understand how real‑world web applications are built end‑to‑end — from backend architecture and database design to authentication, third‑party integrations, and deployment.
 
