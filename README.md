@@ -6,13 +6,21 @@ This project was designed and implemented entirely by me as a major learning pro
 
 # 🌟 KEY FEATURE
 1.) User authentication & authorization (login, signup, protected routes)
+
 2.) Persistent session management using MongoDB Atlas
+
 3.) Create, edit, and delete property listings
+
 4.) Image upload and storage using Cloudinary
+
 5.) Interactive maps using Leaflet and OpenStreetMap
+
 6.) Search and filter listings by title, location, or country
+
 7.) Flash messages and proper error handling
+
 8.) Server‑side rendering using EJS templates
+
 9.) Deployed on Render with environment‑based configuration
 
 # 🛠 TECH STACK
@@ -44,10 +52,15 @@ This project was designed and implemented entirely by me as a major learning pro
 # What I Focused On While Building This -
 Instead of just creating pages, I focused on understanding:
 1.) How authentication and sessions actually work
+
 2.) How data flows from the client to the server and database
+
 3.) How to securely store sessions in MongoDB using connect‑mongo
+
 4.) How to integrate third‑party services (maps, image uploads)
+
 5.) How deployment differs from local development
+
 6.) How to debug real production‑level errors (MongoDB Atlas, DNS, env variables)
 
 # This project helped me move from "writing code" to "thinking like a backend developer".
