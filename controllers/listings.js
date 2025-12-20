@@ -36,7 +36,7 @@ module.exports.createListing = async (req, res) => {
     const coords = await geocodeLocation(location, country);
     // coords should be: { lat, lng }
 
-    // ❗ STOP if geocoding fails
+    //  STOP if geocoding fails
     if (!coords) {
       req.flash("error", "Invalid location. Please enter a valid city and country.");
       return res.redirect("/listings/new");
