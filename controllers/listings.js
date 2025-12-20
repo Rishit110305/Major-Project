@@ -6,6 +6,7 @@ const { geocodeLocation } = require("../utils/geocode.js"); // <- IMPORTANT
 // const wrapAsync = require("../utils/wrapAsync.js"); etc.
 
 module.exports.index = async (req, res) => {
+  // implementing SEARCH functionality 
   const { search } = req.query;
 
   let filter = {};
@@ -13,8 +14,8 @@ module.exports.index = async (req, res) => {
   if (search) {
     filter = {
       $or: [
-        { title: { $regex: search, $options: "i" } },
-        { location: { $regex: search, $options: "i" } },
+        { title: { $regex: search, $options: "i" } }, // $regex : This is pattern matching (like includes() in JS)
+        { location: { $regex: search, $options: "i" } }, // options i : case insensitive search 
         { country: { $regex: search, $options: "i" } },
       ],
     };
