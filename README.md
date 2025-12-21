@@ -74,8 +74,7 @@ Instead of just creating pages, I focused on understanding:
  - Cloudinary account
 
 Steps :
-1.) Clone the repository ( git clone https://github.com/your‑username/wanderlust.git
-cd wanderlust )
+1.) Clone the repository git clone https://github.com/Rishit110305/Major-Project.git
 
 2.) Install dependencies ( npm install )
 
