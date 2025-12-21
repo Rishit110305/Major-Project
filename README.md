@@ -51,6 +51,7 @@ This project was designed and implemented entirely by me as a major learning pro
 
 # What I Focused On While Building This -
 Instead of just creating pages, I focused on understanding:
+
 1.) How authentication and sessions actually work
 
 2.) How data flows from the client to the server and database
