@@ -82,7 +82,13 @@ Building WanderLust wasn't just about writing code; it was about solving real-wo
 - **Technical Hurdle:** Handling multipart/form-data requests and ensuring the image upload completes before saving the listing data.
 - **Fix:** Used **multer** along with **multer-storage-cloudinary** to parse incoming files. Implemented async/await logic so the database saves the listing only after Cloudinary confirms a successful upload, preventing broken image links and ensuring reliable rendering.
 
-### 3. Database Connectivity & DNS Issues (`EREFUSED`)
+### 3. Cloud Storage & Asynchronous Data Flow (Cloudinary)
+- **Challenge:** During the initial deployment on Render, the application failed to connect to MongoDB Atlas because the .env file was included in .gitignore, meaning environment variables were not available in the production environment.
+- **Root Cause:** Sensitive credentials (database URL, session secrets, Cloudinary keys) are intentionally excluded from version control, so the deployed application had no access to them by default.
+- **Solution:** Added all required environment variables manually in the Render dashboard and configured MongoDB Atlas IP Whitelisting to allow connections from Render’s servers.
+- **Fix:** After properly setting environment variables in Render and updating Atlas network access, I redeployed the application, which successfully established database connectivity and ran as expected in production.
+
+### 4. Database Connectivity & DNS Issues (`EREFUSED`)
 - **Challenge:** Encountered `EREFUSED` errors when connecting to MongoDB Atlas due to local ISP restrictions on SRV records.
 - **Solution:** Debugged network-level issues by whitelisting IP addresses in Atlas and switching to Google's Public DNS (8.8.8.8) to ensure stable communication between the Node.js server and the cloud database.
 
