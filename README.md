@@ -66,6 +66,14 @@ Instead of just creating pages, I focused on understanding:
 
 # This project helped me move from "writing code" to "thinking like a backend developer".
 
+# 🧠 Challenges & Learning Outcomes
+
+Building WanderLust wasn't just about writing code; it was about solving real-world production hurdles. Some of the key challenges I overcame include:
+
+### 1. Database Connectivity & DNS Issues (`EREFUSED`)
+- **Challenge:** Encountered `EREFUSED` errors when connecting to MongoDB Atlas due to local ISP restrictions on SRV records.
+- **Solution:** Debugged network-level issues by whitelisting IP addresses in Atlas and switching to Google's Public DNS (8.8.8.8) to ensure stable communication between the Node.js server and the cloud database.
+
 # ⚙️ Installation & Setup :
 
  Prerequisites
