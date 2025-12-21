@@ -76,7 +76,13 @@ Building WanderLust wasn't just about writing code; it was about solving real-wo
 - **Technical Hurdle:** Faced an issue where the map would only show a hardcoded default location rather than the listing's actual coordinates.
 - **Fix:** Implemented a geocoding logic that checks for valid location strings. I updated the backend to prioritize the actual Latitude/Longitude of the listing, using the default location only as a "fallback" in case of timeouts or geocoding errors.
 
-### 2. Database Connectivity & DNS Issues (`EREFUSED`)
+### 2. Cloud Storage & Asynchronous Data Flow (Cloudinary)
+- **Challenge:** Storing high-quality images directly in MongoDB is inefficient and increases database load. I also faced an issue where images sometimes failed to render immediately after upload due to asynchronous behavior.
+- **Solution:** Integrated Cloudinary for cloud-based image storage and stored only the returned secure image URL in MongoDB instead of raw image data.
+- **Technical Hurdle:** Handling multipart/form-data requests and ensuring the image upload completes before saving the listing data.
+- **Fix:** Used **multer** along with **multer-storage-cloudinary** to parse incoming files. Implemented async/await logic so the database saves the listing only after Cloudinary confirms a successful upload, preventing broken image links and ensuring reliable rendering.
+
+### 3. Database Connectivity & DNS Issues (`EREFUSED`)
 - **Challenge:** Encountered `EREFUSED` errors when connecting to MongoDB Atlas due to local ISP restrictions on SRV records.
 - **Solution:** Debugged network-level issues by whitelisting IP addresses in Atlas and switching to Google's Public DNS (8.8.8.8) to ensure stable communication between the Node.js server and the cloud database.
 
