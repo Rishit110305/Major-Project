@@ -82,7 +82,7 @@ Building WanderLust wasn't just about writing code; it was about solving real-wo
 - **Technical Hurdle:** Handling multipart/form-data requests and ensuring the image upload completes before saving the listing data.
 - **Fix:** Used **multer** along with **multer-storage-cloudinary** to parse incoming files. Implemented async/await logic so the database saves the listing only after Cloudinary confirms a successful upload, preventing broken image links and ensuring reliable rendering.
 
-### 3. Cloud Storage & Asynchronous Data Flow (Cloudinary)
+### 3. Deployment Configuration & Environment Variable Management
 - **Challenge:** During the initial deployment on Render, the application failed to connect to MongoDB Atlas because the .env file was included in .gitignore, meaning environment variables were not available in the production environment.
 - **Root Cause:** Sensitive credentials (database URL, session secrets, Cloudinary keys) are intentionally excluded from version control, so the deployed application had no access to them by default.
 - **Solution:** Added all required environment variables manually in the Render dashboard and configured MongoDB Atlas IP Whitelisting to allow connections from Render’s servers.
