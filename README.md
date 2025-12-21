@@ -91,7 +91,7 @@ NODE_ENV=development
 5.) Open in browser ( http://localhost:8080 )
 
 # 🌐 Live Demo
-Deployed on Render: https://your‑app.onrender.com
+Deployed on Render: https://major-project-2x5b.onrender.com
 
 # 🪜 Project Structure
 - models/ – Mongoose schemas
