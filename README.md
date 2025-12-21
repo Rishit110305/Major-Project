@@ -70,15 +70,15 @@ Instead of just creating pages, I focused on understanding:
 
 Building WanderLust wasn't just about writing code; it was about solving real-world production hurdles. Some of the key challenges I overcame include:
 
-### 1. Database Connectivity & DNS Issues (`EREFUSED`)
-- **Challenge:** Encountered `EREFUSED` errors when connecting to MongoDB Atlas due to local ISP restrictions on SRV records.
-- **Solution:** Debugged network-level issues by whitelisting IP addresses in Atlas and switching to Google's Public DNS (8.8.8.8) to ensure stable communication between the Node.js server and the cloud database.
-
-### 2. API Selection & Risk Management (Maps)
+### 1. API Selection & Risk Management (Maps)
 - **Challenge:** Initially planned to use Mapbox but discovered it required credit card credentials for API access, which posed a financial risk for a student project.
 - **Solution:** Pivoted to **Leaflet.js** and **OpenStreetMap**, which are open-source and free. 
 - **Technical Hurdle:** Faced an issue where the map would only show a hardcoded default location rather than the listing's actual coordinates.
 - **Fix:** Implemented a geocoding logic that checks for valid location strings. I updated the backend to prioritize the actual Latitude/Longitude of the listing, using the default location only as a "fallback" in case of timeouts or geocoding errors.
+
+### 2. Database Connectivity & DNS Issues (`EREFUSED`)
+- **Challenge:** Encountered `EREFUSED` errors when connecting to MongoDB Atlas due to local ISP restrictions on SRV records.
+- **Solution:** Debugged network-level issues by whitelisting IP addresses in Atlas and switching to Google's Public DNS (8.8.8.8) to ensure stable communication between the Node.js server and the cloud database.
 
 # ⚙️ Installation & Setup :
 
