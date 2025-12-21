@@ -65,9 +65,22 @@
 
 <!-- Page not Found if search not match -->
 <% if (allListings.length === 0) { %>
-  <p class="text-center mt-4">
-    No listings found 😕
-  </p>
+  <div class="container text-center my-5 py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="display-1 text-muted mb-4">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <h2 class="fw-bold">No matches found</h2>
+        <p class="text-secondary mb-4">
+          We couldn't find what you're looking for. Try a different keyword or browse all our available listings.
+        </p>
+        <a href="/listings" class="btn btn-danger btn-lg px-4 shadow-sm">
+          Browse All Listings
+        </a>
+      </div>
+    </div>
+  </div>
 <% } %>
 
 <!-- LISTINGS -->
