@@ -129,6 +129,13 @@ Deployed on Render: https://major-project-2x5b.onrender.com
 # 🙌 Acknowledgement
 This project was built as part of my learning journey in full‑stack web development. It reflects my understanding of backend systems, databases, authentication, and deployment, and it played a major role in strengthening my confidence as a developer.
 
+## 👨‍💻 About Me
+**Rishit Goswami** *Full-Stack Developer*
+
+I'm a developer passionate about 
+📫 **Let's Connect:**
+- [GitHub](https://github.com/Rishit110305)
+
 # 📫 Contact
 If you have feedback or suggestions, feel free to connect with me.
 
