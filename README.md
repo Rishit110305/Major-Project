@@ -132,7 +132,7 @@ This project was built as part of my learning journey in full‑stack web develo
 ## 👨‍💻 About Me
 **Rishit Goswami** *Full-Stack Developer*
 
-I'm a developer passionate about 
+“I’m a developer who’s deeply passionate about backend engineering. While frontend shows the beauty of an application, what excites me more is the logic that powers it — how data is processed, how systems communicate, and how everything works reliably behind the scenes. I enjoy understanding and implementing the core mechanics that make applications function at scale.”
 
 📫 **Let's Connect:**
 - [GitHub](https://github.com/Rishit110305)
