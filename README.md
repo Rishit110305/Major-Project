@@ -141,3 +141,4 @@ This project was built as part of my learning journey in full‑stack web develo
 If you have feedback or suggestions, feel free to connect with me.
 
 Developer: Rishit Goswami
+Gmail : rishitgoswami3740@gmail.com
